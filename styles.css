@@ -5,7 +5,6 @@
   --text-dark: #0f172a;
   --white: #ffffff;
   --max-width: 1200px;
-  
 }
 
 * {
@@ -25,11 +24,6 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
-  min-height: 500vh;
-  background-image: linear-gradient(rgba(9, 24, 29, 0.9), rgba(17, 41, 49, 0.9));
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .container {
@@ -42,12 +36,14 @@ body {
 }
 
 nav {
-position: fixed;  
-top: 0;           
-width: 100%;      
-z-index: 1000;    
+  position: fixed;
+  isolation: isolate;
+  top: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  z-index: 9;
 }
-
 
 .nav__bar {
   padding: 0.75rem 1rem;
@@ -55,18 +51,17 @@ z-index: 1000;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background-color: var(--primary-color);
+  background-color:#0f172a;
 }
 
 .nav__logo {
   display: flex;
   align-items: center;
   gap: 10px;
- 
 }
 
 .nav__logo img {
-  max-width: 122px;
+  max-width: 75px;
 }
 
 .nav__logo span {
@@ -84,24 +79,21 @@ z-index: 1000;
 
 .nav__links {
   list-style: none;
-  position: fixed; 
-  transform: translate(-50%, -50%); 
+  position: absolute;
   width: 100%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  background-color: rgba(9, 24, 29, 0.9);
+  transform: translateY(-100%);
   transition: 0.5s;
-  z-index: 1000; 
-  
+  z-index: -1;
 }
 
-#login{
-  
-}
 .nav__links.open {
-  transform: translate(-50%, -50%); 
+  transform: translateY(0);
 }
 
 .nav__links a {
@@ -218,21 +210,107 @@ z-index: 1000;
   cursor: pointer;
 }
 
-/*SECTION*/
 section {
   width: 100%;
-  height: 100vh; 
-  display: flex;
+  height: 120vh; /* Isso define a altura de cada seção para cobrir 100% da altura da tela */
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 20px; 
+}
+
+#problema {
+  background-color: rgba(13, 28, 33, 0.9);
+  padding-top: 100px;
+  color: white;
+}
+
+#tecnologias {
+  background-color: rgba(5, 20, 25, 0.9); 
+  padding-top: 100px;
+  color: white;
+}
+
+#objetivos {
+  background-color: rgba(9, 24, 34, 0.9); 
+  padding-top: 100px;
+  color: white;
+}
+
+#impactos {
+  background-color: rgba(11, 26, 31, 0.9); 
+  padding-top: 100px;
+  color: white;
+}
+
+#beneficios {
+  background-color: rgba(8, 23, 28, 0.9); 
+  padding-top: 100px;
+  color: white;
+}
+
+#solucao {
+  background-color: rgba(8, 23, 28, 0.9); 
+  padding-top: 100px;
+  color: white;
 }
 
 
 
 
+@media (width > 768px) {
+  nav {
+    padding: 2rem 1rem;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__bar {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo span {
+    display: flex;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    padding: 0;
+    width: unset;
+    position: static;
+    transform: none;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  .container__grid {
+    padding-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .container__image {
+    grid-area: 1/2/2/3;
+  }
+
+  .container__content {
+    text-align: left;
+  }
+
+  .container__content :is(h2, p) {
+    margin-inline: unset;
+  }
+
+  .socials > div {
+    justify-content: flex-start;
+  }
+}
 
 /*FOOTER*/
 
@@ -296,44 +374,4 @@ section {
 .footer__social-icon:hover {
   background-color: #e2be0a;
   color: #0f172a;
-}
-
-
-@media (max-width: 768px) {
-  .nav {
-  padding: 0.75rem 1rem;  /* Ajuste o preenchimento conforme necessário */
-  position: fixed;  /* O menu deve ser fixo no topo da página */
-  width: 100%;  /* Ocupa toda a largura da tela */
-  background-color: #171D26;  /* Cor de fundo para melhor visibilidade */
-  z-index: 1000;  /* Garante que o menu fique acima de outros elementos */
-  }
-
-  .nav__bar {
-  background-color: #171D26; /* Cor de fundo para a barra do menu */
-  }
-
-  .nav__logo span {
-  display: none;  /* Oculta o nome ao lado do logo em telas pequenas para economizar espaço */
-  }
-
-  .nav__menu__btn {
-  display: block;  /* Mostra o botão do menu em telas pequenas */
-  }
-
-  .nav__links {
-  position: fixed;  /* Mantém os links fixos */
-  top: 0;  /* Inicia no topo da página */
-  left: 0;  /* Alinha à esquerda da página */
-  height: 100vh;  /* Ocupa a altura total da tela */
-  width: 100%;  /* Ocupa a largura total da tela */
-  flex-direction: column;  /* Organiza os links em uma coluna */
-  transform: translateY(-100%); /* Esconde os links acima da tela */
-  background-color: rgba(9, 24, 29, 0.9); /* Cor de fundo semitransparente */
-  transition: transform 0.3s ease-in-out; /* Suaviza a transição */
-  }
-
-  .nav__links.open {
-  transform: translateY(0); /* Move os links para dentro da tela quando o menu está aberto */
-  }
-
 }
