@@ -5,6 +5,7 @@
   --text-dark: #0f172a;
   --white: #ffffff;
   --max-width: 1200px;
+  
 }
 
 * {
@@ -24,6 +25,11 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
+  min-height: 500vh;
+  background-image: linear-gradient(rgba(9, 24, 29, 0.9), rgba(17, 41, 49, 0.9));
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -36,14 +42,12 @@ body {
 }
 
 nav {
-  position: fixed;
-  isolation: isolate;
-  top: 0;
-  width: 100%;
-  max-width: var(--max-width);
-  margin: auto;
-  z-index: 9;
+position: fixed;  
+top: 0;           
+width: 100%;      
+z-index: 1000;    
 }
+
 
 .nav__bar {
   padding: 0.75rem 1rem;
@@ -58,10 +62,11 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
+ 
 }
 
 .nav__logo img {
-  max-width: 75px;
+  max-width: 122px;
 }
 
 .nav__logo span {
@@ -210,8 +215,85 @@ nav {
   cursor: pointer;
 }
 
+/*SECTION*/
+section {
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px; 
+}
 
 
+
+
+
+/*FOOTER*/
+
+.footer {
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer__content p {
+  margin-bottom: 20px;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__links li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.footer__links li:last-child {
+  margin-right: 0;
+}
+
+.footer__links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer__links a:hover {
+  text-decoration: underline;
+}
+
+.footer__socials {
+  margin-top: 20px;
+}
+
+.footer__social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 50%;
+  line-height: 40px;
+  font-size: 1.4rem;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.footer__social-icon:hover {
+  background-color: #e2be0a;
+  color: #0f172a;
+}
 
 
 @media (width > 768px) {
