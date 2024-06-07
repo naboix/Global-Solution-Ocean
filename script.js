@@ -82,15 +82,3 @@ function alertaBemvindo() {
 // toda vez que carregar vai aparecer
 window.onload = alertaBemvindo;
 
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  carrossel++;
-  if (carrossel > slides.length) {
-      carrossel = 1;
-  }
-  slides[carrossel - 1].style.display = "block";
-  setTimeout(showSlides, 3000); // Troca de slide a cada 3 segundos (3000 milissegundos)
-}
