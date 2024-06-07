@@ -39,3 +39,28 @@ ScrollReveal().reveal(".socials", {
   ...scrollRevealOption,
   delay: 1500,
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollLinks = document.querySelectorAll('.nav-links a');
+
+  scrollLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+          e.preventDefault(); // Impede a rolagem padrão do navegador
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+
+          if (target) {
+              // Rolagem suave para o destino
+              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 60;
+              window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+});
+
+
+
