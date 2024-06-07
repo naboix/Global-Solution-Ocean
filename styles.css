@@ -84,21 +84,24 @@ z-index: 1000;
 
 .nav__links {
   list-style: none;
-  position: absolute;
+  position: fixed; 
+  transform: translate(-50%, -50%); 
   width: 100%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  background-color: rgba(9, 24, 29, 0.9);
-  transform: translateY(-100%);
   transition: 0.5s;
-  z-index: -1;
+  z-index: 1000; 
+  
 }
 
+#login{
+  
+}
 .nav__links.open {
-  transform: translateY(0);
+  transform: translate(-50%, -50%); 
 }
 
 .nav__links a {
@@ -296,56 +299,41 @@ section {
 }
 
 
-@media (width > 768px) {
-  nav {
-    padding: 2rem 1rem;
-    position: static;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+@media (max-width: 768px) {
+  .nav {
+  padding: 0.75rem 1rem;  /* Ajuste o preenchimento conforme necessário */
+  position: fixed;  /* O menu deve ser fixo no topo da página */
+  width: 100%;  /* Ocupa toda a largura da tela */
+  background-color: #171D26;  /* Cor de fundo para melhor visibilidade */
+  z-index: 1000;  /* Garante que o menu fique acima de outros elementos */
   }
 
   .nav__bar {
-    padding: 0;
-    background-color: transparent;
+  background-color: #171D26; /* Cor de fundo para a barra do menu */
   }
 
   .nav__logo span {
-    display: flex;
+  display: none;  /* Oculta o nome ao lado do logo em telas pequenas para economizar espaço */
   }
 
   .nav__menu__btn {
-    display: none;
+  display: block;  /* Mostra o botão do menu em telas pequenas */
   }
 
   .nav__links {
-    padding: 0;
-    width: unset;
-    position: static;
-    transform: none;
-    flex-direction: row;
-    background-color: transparent;
+  position: fixed;  /* Mantém os links fixos */
+  top: 0;  /* Inicia no topo da página */
+  left: 0;  /* Alinha à esquerda da página */
+  height: 100vh;  /* Ocupa a altura total da tela */
+  width: 100%;  /* Ocupa a largura total da tela */
+  flex-direction: column;  /* Organiza os links em uma coluna */
+  transform: translateY(-100%); /* Esconde os links acima da tela */
+  background-color: rgba(9, 24, 29, 0.9); /* Cor de fundo semitransparente */
+  transition: transform 0.3s ease-in-out; /* Suaviza a transição */
   }
 
-  .container__grid {
-    padding-top: 2rem;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+  .nav__links.open {
+  transform: translateY(0); /* Move os links para dentro da tela quando o menu está aberto */
   }
 
-  .container__image {
-    grid-area: 1/2/2/3;
-  }
-
-  .container__content {
-    text-align: left;
-  }
-
-  .container__content :is(h2, p) {
-    margin-inline: unset;
-  }
-
-  .socials > div {
-    justify-content: flex-start;
-  }
 }
