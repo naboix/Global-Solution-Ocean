@@ -10,9 +10,18 @@
     <link rel="icon" href="assets/icon1.png">
     <title>STO | SAVE THE OCEAN</title>
   </head>
-  <body>
+<body>
+  <!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-image: url('assets/bg.jpg');"></div>
+    <div class="swiper-slide" style="background-image: url('assets/bg-poluido.webp');"></div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+</div>
     <section class="container">
-      <nav>
+      <nav id="header">
         <div class="nav__bar">
           <a href="#" class="nav__logo">
             <img src="assets/logo.png" alt="logo" />
@@ -32,6 +41,7 @@
           <li><a href="#solucao">Solução</a></li>
           <li><a href="/pages/login.html">Login</a></li>
         </ul>
+            
       </nav>
       <div class="container__grid">
         <img src="assets/bg-dots.png" alt="bg" class="bg__1" />
@@ -56,6 +66,8 @@
             </div>
             <span>www.fiap.com.br</span>
             
+            
+
           </div>
         </div>
       </div>
@@ -117,9 +129,10 @@
     </footer>
     
     
-    
+    <button id="backToTop" title="Voltar ao topo" style="display: none;">↑</button>
    
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
+
   </body>
 </html>

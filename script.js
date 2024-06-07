@@ -41,26 +41,56 @@ ScrollReveal().reveal(".socials", {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollLinks = document.querySelectorAll('.nav-links a');
 
-  scrollLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-          e.preventDefault(); // Impede a rolagem padrão do navegador
-          const targetId = this.getAttribute('href');
-          const target = document.querySelector(targetId);
 
-          if (target) {
-              // Rolagem suave para o destino
-              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 60;
-              window.scrollTo({
-                  top: targetPosition,
-                  behavior: 'smooth'
-              });
-          }
+/*criando menu scrol*/
+
+window.addEventListener("scroll", function(){
+  let header = document.querySelector('#header')
+  header.classList.toggle('rolagem',window.scrollY > 50 ) /*add classe ao header*/
+} )
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+      // Mostrar o botão após rolar 500px para baixo
+      if (window.scrollY > 500) {
+          backToTopButton.style.display = 'block';
+      } else {
+          backToTopButton.style.display = 'none';
+      }
+  });
+
+  backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Efeito de rolagem suave
       });
   });
 });
 
 
 
+
+//FUNCAO ALERTA QUANDO ABRIR
+function alertaBemvindo() {
+  alert("Seja bem-vindo!");
+}
+
+// toda vez que carregar vai aparecer
+window.onload = alertaBemvindo;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  carrossel++;
+  if (carrossel > slides.length) {
+      carrossel = 1;
+  }
+  slides[carrossel - 1].style.display = "block";
+  setTimeout(showSlides, 3000); // Troca de slide a cada 3 segundos (3000 milissegundos)
+}
